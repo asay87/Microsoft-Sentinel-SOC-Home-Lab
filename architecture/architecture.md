@@ -59,4 +59,46 @@ This centralized architecture reflects a simplified cloud-based SOC model.
   - 4625 – Failed logon
   - 4688 – Process creation
 
-These logs p
+These logs provide visibility into authentication behavior, system activity, and potential attack indicators.
+
+---
+
+## 6. Data Flow
+1. Microsoft Entra ID generates authentication and audit logs  
+2. The Windows VM generates security events  
+3. Logs are forwarded to the Log Analytics Workspace  
+4. Microsoft Sentinel analyzes and correlates events  
+5. Security incidents are generated and tracked within Sentinel
+
+---
+
+## 7. Security & Best Practices
+- Principle of least privilege applied to Azure roles
+- Dedicated resource group for SOC components
+- No secrets or sensitive identifiers stored in Git
+- All screenshots are sanitized (IP addresses, UPNs, tenant IDs)
+- Separation between monitoring and administration roles
+
+---
+
+## 8. Lab Limitations
+- Limited log volume compared to production SOCs
+- Single endpoint and single tenant
+- No advanced threat intelligence feeds
+- No automated containment actions enabled by default
+
+---
+
+## 9. Future Improvements
+- Integration of additional log sources (network, firewall, NSG)
+- Advanced KQL threat hunting scenarios
+- More complex SOAR playbooks (containment, user disablement)
+- Multi-tenant or cross-subscription log ingestion
+
+---
+
+## 10. Visual Evidence
+- Microsoft Sentinel Overview screenshot
+- Log Analytics Workspace configuration
+- Architecture diagram
+- Sample incident investigation screenshots
